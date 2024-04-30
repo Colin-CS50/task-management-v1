@@ -36,6 +36,18 @@ class User:
 
         return jsonify({ "error": "Signup failed" }), 400
 
+    def login(self):
+        data = request.json
+
+        user = db.users.find_one({
+            'email': data['email']
+        })
+
+        if user and pbkdf2_sha256.verify(data['password'], user['password']):
+            return self.start_session(user)
+
+        return jsonify({"error": "Invalid login credentials"}), 401
+
     def signout(self):
         session.clear()
         return redirect('/')

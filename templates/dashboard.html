@@ -3,7 +3,6 @@
 {% block content %}
   <h1>Dashboard</h1>
 
-  {{ session['logged_in'] }}
-  </br>
-  {{ session['user'] }}
+  <a href="/user/signout" >Logout</a>
+  <!-- {{ session['user'] }} -->
 {% endblock %}
