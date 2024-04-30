@@ -3,6 +3,7 @@ import pymongo
 import json
 
 app = Flask(__name__)
+app.secret_key = b'\x7f\xf5\xc0\xf3\xd4\x03\xa8\x03\xc5\x81\x85\x14\x12\xd2Z!'
 
 # Load config from config.json
 with open('config.json', 'r') as config_file:

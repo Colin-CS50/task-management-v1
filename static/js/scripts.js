@@ -20,7 +20,10 @@ form.addEventListener("submit", (e) => {
         console.log(data.error);
         // error.insertAdjacentHTML("afterbegin", data.error);
         // throw new Error("Network response was not ok");
+      } else {
+        window.location.href = "/dashboard";
       }
+
       console.log("Success:", data);
     })
     .catch((error) => {
